@@ -3,13 +3,16 @@ var router = express.Router();
 
 var faker = require('faker');
 
+//node.jsでファイルの出力
+const fs = require("fs");
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
   console.log('件数: ' + req.query.count);
 
   //jsonデータの作成
-  var jsonData = 
+  var jsonData =
   [
       {
           fullname: faker.name.findName(),//............フルネーム
@@ -19,10 +22,10 @@ router.get('/', function(req, res, next) {
           phonenumber:faker.phone.phoneNumber(),//......電話番号
       }
   ]
-  
+
   //指定した件数jsonデータの作成
   for (let i = 0; i < req.query.count-1; i++) {
-      var jsonDataAdd = 
+      var jsonDataAdd =
       {
           fullname: faker.name.findName(),//............フルネーム
           mailaddr:faker.internet.email(),//............メールアドレス
@@ -32,9 +35,9 @@ router.get('/', function(req, res, next) {
       }
       jsonData.push(jsonDataAdd);
     }
-
-
     console.log(jsonData);
+
+    fs.writeFileSync("sample.json",jsonData);
 
   res.json(jsonData);
 });
