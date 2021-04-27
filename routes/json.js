@@ -3,9 +3,6 @@ var router = express.Router();
 
 var faker = require('faker');
 
-//node.jsでファイルの出力
-const fs = require("fs");
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
@@ -36,8 +33,6 @@ router.get('/', function(req, res, next) {
       jsonData.push(jsonDataAdd);
     }
     console.log(jsonData);
-
-    fs.writeFileSync("sample.json",jsonData);
 
   res.json(jsonData);
 });
