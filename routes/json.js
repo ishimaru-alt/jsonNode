@@ -17,6 +17,9 @@ router.get('/', function(req, res, next) {
           zipcode:faker.address.zipCode(),//............郵便番号
           password:faker.internet.password(),//.........パスワード
           phonenumber:faker.phone.phoneNumber(),//......電話番号
+          companyname:faker.company.companyName(),//....企業名
+          words:faker.random.words(),//.................単語
+          url:faker.internet.url(),//.................url
       }
   ]
 
@@ -29,6 +32,9 @@ router.get('/', function(req, res, next) {
           zipcode:faker.address.zipCode(),//............郵便番号
           password:faker.internet.password(),//.........パスワード
           phonenumber:faker.phone.phoneNumber(),//......電話番号
+          companyname:faker.company.companyName(),//....企業名
+          words:faker.random.words(),//.................単語
+          url:faker.internet.url(),//.................url
       }
       jsonData.push(jsonDataAdd);
     }
